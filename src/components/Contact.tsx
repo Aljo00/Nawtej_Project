@@ -1,43 +1,40 @@
-import { useState, FormEvent } from 'react';
-import { Mail, Linkedin, Send } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { useState, FormEvent } from "react";
+import { Mail, Linkedin, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
-
+    setStatus("submitting");
     try {
-      const { error } = await supabase.from('contact_messages').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-      ]);
+      // Send form data to a backend endpoint. Implement /api/contact server-side to persist or forward messages.
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Failed to submit form");
+      }
 
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
+      console.error("Error submitting form:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
@@ -49,7 +46,8 @@ export default function Contact() {
             Let's Connect
           </h2>
           <p className="text-xl text-gray-600">
-            Reach out for enterprise pricing, consulting, or speaking engagements
+            Reach out for enterprise pricing, consulting, or speaking
+            engagements
           </p>
         </div>
 
@@ -79,10 +77,16 @@ export default function Contact() {
           </a>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-light-gray p-8 rounded-xl shadow-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-light-gray p-8 rounded-xl shadow-lg"
+        >
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-charcoal mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-semibold text-charcoal mb-2"
+              >
                 Name
               </label>
               <input
@@ -90,12 +94,17 @@ export default function Contact() {
                 id="name"
                 required
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-charcoal mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-charcoal mb-2"
+              >
                 Email
               </label>
               <input
@@ -103,14 +112,19 @@ export default function Contact() {
                 id="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
               />
             </div>
           </div>
 
           <div className="mb-6">
-            <label htmlFor="subject" className="block text-sm font-semibold text-charcoal mb-2">
+            <label
+              htmlFor="subject"
+              className="block text-sm font-semibold text-charcoal mb-2"
+            >
               Subject
             </label>
             <input
@@ -118,13 +132,18 @@ export default function Contact() {
               id="subject"
               required
               value={formData.subject}
-              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, subject: e.target.value })
+              }
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-semibold text-charcoal mb-2">
+            <label
+              htmlFor="message"
+              className="block text-sm font-semibold text-charcoal mb-2"
+            >
               Message
             </label>
             <textarea
@@ -132,18 +151,20 @@ export default function Contact() {
               required
               rows={6}
               value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
             />
           </div>
 
           <button
             type="submit"
-            disabled={status === 'submitting'}
+            disabled={status === "submitting"}
             className="w-full bg-primary hover:bg-primary-dark disabled:bg-gray-400 text-white font-semibold px-8 py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
-            {status === 'submitting' ? (
-              'Sending...'
+            {status === "submitting" ? (
+              "Sending..."
             ) : (
               <>
                 <Send size={20} />
@@ -152,13 +173,13 @@ export default function Contact() {
             )}
           </button>
 
-          {status === 'success' && (
+          {status === "success" && (
             <div className="mt-4 p-4 bg-secondary/10 text-secondary rounded-lg text-center font-semibold">
               Message sent successfully! We'll get back to you soon.
             </div>
           )}
 
-          {status === 'error' && (
+          {status === "error" && (
             <div className="mt-4 p-4 bg-red-100 text-red-600 rounded-lg text-center font-semibold">
               Failed to send message. Please try again or email us directly.
             </div>
