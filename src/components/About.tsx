@@ -1,4 +1,5 @@
 import { User } from 'lucide-react';
+import About_Img from "../assets/About_Img.jpg"
 
 export default function About() {
   return (
@@ -7,7 +8,7 @@ export default function About() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
             <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-xl">
-              <User size={120} className="text-primary" strokeWidth={1.5} />
+              <img src={About_Img} alt="Nawtej Dosanjh" className="w-full h-full object-cover rounded-2xl" />
             </div>
           </div>
 

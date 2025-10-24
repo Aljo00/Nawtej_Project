@@ -1,4 +1,5 @@
 import { User } from 'lucide-react';
+import Hero_Img from "../assets/Public_Speaking.jpg"
 
 export default function Hero() {
   return (
@@ -15,8 +16,8 @@ export default function Hero() {
           </div>
 
           <div className="flex-1 flex justify-center">
-            <div className="w-80 h-80 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-2xl">
-              <User size={120} className="text-white" strokeWidth={1.5} />
+            <div className="w-80 h-80 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
+              <img src={Hero_Img} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
