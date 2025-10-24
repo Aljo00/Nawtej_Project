@@ -2,7 +2,7 @@ import { BookOpen, Sparkles } from 'lucide-react';
 
 export default function Publications() {
   return (
-    <section className="py-20 bg-light-gray">
+    <section className="min-h-screen bg-light-gray flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-charcoal text-center mb-16">
           Author & Thought Leader

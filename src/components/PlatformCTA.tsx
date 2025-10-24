@@ -7,7 +7,7 @@ export default function PlatformCTA() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+    <section className="py-32 bg-gradient-to-r from-primary to-secondary flex items-center justify-center mt-9">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
           Ready to Lead with AI?

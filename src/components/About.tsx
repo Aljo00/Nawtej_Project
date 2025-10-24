@@ -2,35 +2,31 @@ import { User } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="min-h-screen bg-white flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-charcoal text-center mb-16">
-          Meet the Expert Behind the Frameworks
-        </h2>
-
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/3">
-            <div className="w-72 h-72 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-xl mx-auto">
+          <div className="lg:w-1/2">
+            <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center shadow-xl">
               <User size={120} className="text-primary" strokeWidth={1.5} />
             </div>
           </div>
 
-          <div className="lg:w-2/3">
-            <h3 className="text-3xl font-bold text-charcoal mb-2">
-              Dr. Nawtej Dosanjh
-            </h3>
-            <p className="text-xl text-primary mb-6 font-semibold">
-              International Higher Education Leader, Digital Innovator, & Trusted Advisor
+          <div className="lg:w-1/2">
+            <p className="text-lg text-primary font-semibold mb-4">
+              YOUR LOCAL BUSINESS COACH / CONSULTANT
             </p>
-            <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+            <h2 className="text-4xl font-bold text-charcoal mb-6">
+              MEET NAWTEJ DOSANJH
+            </h2>
+            <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
               <p>
-                Dr. Nawtej Dosanjh is an innovator and transformative leader in higher education and executive coaching. With a career focused on delivering impact and scaling education through digital innovation, his work is defined by a relentless drive for excellence.
+                Dr. Nawtej Dosanjh is a renowned business coach & consultant. He is associated with Middlesex University, London as a Professor for its Master Programs in Healthcare Business & Management and Business Excellence & Innovation.
               </p>
               <p>
-                He has held prestigious roles as Global Dean at Hult International Business School and Chief Academic Officer at the Digital Academy at Global University Systems, where he has shaped the future of learning and leadership development on a global scale.
+                He is passionate about helping businesses and has developed many frameworks for the NHS to help deliver great leaders & help companies to grow. His projects have delivered more than £1.5m in savings for NHS.
               </p>
               <p>
-                Through his AIStrategiser platform, Dr. Dosanjh brings decades of expertise to leaders navigating the complex landscape of artificial intelligence, providing them with practical frameworks and proven strategies to transform uncertainty into competitive advantage.
+                As a business coach & consultant, Nawtej has helped many companies to reach their goals. His clients include businesses from all sectors and sizes, from startups to large corporations.
               </p>
             </div>
           </div>
