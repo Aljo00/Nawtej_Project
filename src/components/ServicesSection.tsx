@@ -1,47 +1,26 @@
 
 import { useState } from 'react';
-import Business_coach from "../assets/Business_Coach.jpg"
-import Business_consultant from "../assets/Business_Consulting.jpg"
 import Healthcare_Consulting from "../assets/Healthcare_Consulting.jpg"
-import Excutive_Coach from "../assets/Executive_Coach.jpg"
 import Workshop_Training from "../assets/Workshop_Training.jpg"
 import Public_Speaking from "../assets/Public_Speaking.jpg"
 
 const services = [
   {
-    title: "BUSINESS COACHING",
+    title: "Healthcare Consulting",
     description:
-      "As a business and executive coach, I help optimize organizational effectiveness through personalized growth strategies focused on critical elements like leadership, digital innova-tion, and strategy. My coaching process begins with a discovery call to understand your business context and goals. Change your company, and boost your leadership skills—it all starts with a chat. Let’s talk, and I’ll develop a custom plan just for you.",
-    imageUrl: Business_coach,
-  },
-  {
-    title: "BUSINESS CONSULTING",
-    description:
-      "My consulting practice partners with organizations across industries and sectors to build capabilities for adaptation and success. Stuck on a plan? Let’s talk. Leadership training? Modernizing your digital systems? Or improving your processes? No problem, I’ll do it all. I’ll make sure your team has the tools—training, resources, and ongoing support—to get there. Lasting change starts with a solid foundation—that’s what we’re building. They will learn the best methods and then apply them immediately to improve your organization.",
-    imageUrl: Business_consultant,
-  },
-  {
-    title: "HEALTHCARE CONSULTING",
-    description:
-      "In healthcare, I partner with Vedere University to collaborate with Access Healthcare. We have created research programs in, for example, fall prevention and substance abuse, from which we have gained immense insights. We have innovated process improvement and used initiatives in AI and data science to help doctors provide a first-class service for pa-tients. We implement evidence-based solutions that drive measurable improvements. We’ll check where things stand now, create better ways of working, help you put the plan into action, and keep an eye on how well it’s all going. We have helped to create millions in cost savings.",
+      "Through our partnership with Vedere University and Access Healthcare, we drive innovation in healthcare. Our research in areas like fall prevention and substance abuse has yielded immense insights. We leverage AI and data science to enhance patient care, implementing evidence-based solutions for measurable improvements and significant cost savings.",
     imageUrl: Healthcare_Consulting,
   },
   {
-    title: "EXECUTIVE COACHING",
+    title: "Workshops & Training",
     description:
-      "As an executive coach, I help leaders excel in strategic thinking, digital leadership, change management, innovation, and cross-cultural leadership. Asking good questions and listen-ing carefully are my best tools. If you’re searching for long-term leadership growth, I en-hance your self-awareness and refine your leadership skills.",
-    imageUrl: Excutive_Coach,
-  },
-  {
-    title: "WORKSHOPS & TRAINING",
-    description:
-      "We design and facilitate interactive workshops and training customized to each organiza-tion’s needs. The workshop topics I cover include leadership development in AI.mbidextrous thinking (simultaneously maximizing being efficient and innovative) and other critical capabilities for organizational success. My engaging facilitation style pro-motes participation, motivation, and capability building.",
+      "Our customized workshops and training sessions are designed to build critical capabilities for your organization's success. We focus on leadership development, AI.mbidextrous thinking, and other essential skills. Our engaging, interactive style fosters participation and motivation, ensuring lasting impact.",
     imageUrl: Workshop_Training,
   },
   {
-    title: "PUBLIC SPEAKING",
+    title: "Public Speaking",
     description:
-      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+      "As an accomplished speaker with thousands of hours of experience at prestigious institutions worldwide, I inspire leaders to adopt an ambidextrous approach. My talks focus on leading organizations to simultaneously maximize efficiency and innovation, driving sustainable growth and a competitive edge.",
     imageUrl: Public_Speaking,
   },
 ];

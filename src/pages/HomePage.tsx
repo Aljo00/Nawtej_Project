@@ -1,26 +1,22 @@
 import Hero from '../components/Hero';
-import PlatformIntro from '../components/PlatformIntro';
-import CoreToolkit from '../components/CoreToolkit';
-import BenefitsSection from '../components/BenefitsSection';
-import Pricing from '../components/Pricing';
-import PlatformCTA from '../components/PlatformCTA';
 import About from '../components/About';
-import Publications from '../components/Publications';
-import Contact from '../components/Contact';
+import Features from '../components/Features';
 import ServicesSection from '../components/ServicesSection';
+import DigitalModelIntro from '../components/DigitalModelIntro';
+import Testimonials from '../components/Testimonials';
+import PlatformCTA from '../components/PlatformCTA';
+import Contact from '../components/Contact';
 
 function HomePage() { 
   return (
     <main>
       <Hero />
-      <PlatformIntro />
-      <CoreToolkit />
-      <ServicesSection />
-      <Pricing />
-      <PlatformCTA />
       <About />
-      <BenefitsSection />
-      <Publications />
+      <Features />
+      <ServicesSection />
+      <DigitalModelIntro />
+      <Testimonials />
+      <PlatformCTA />
       <Contact />
     </main>
   );
