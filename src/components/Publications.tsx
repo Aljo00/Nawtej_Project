@@ -19,7 +19,7 @@ const publications = [
 
 const Publications = () => {
   return (
-    <div className="bg-light-gray py-12 sm:py-16 lg:py-20">
+    <div id="publications" className="bg-light-gray py-12 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-charcoal sm:text-4xl">

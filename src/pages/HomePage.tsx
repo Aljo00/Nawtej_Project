@@ -7,19 +7,35 @@ import AiPlatformIntro from '../components/AiPlatformIntro';
 import Testimonials from '../components/Testimonials';
 import PlatformCTA from '../components/PlatformCTA';
 import Contact from '../components/Contact';
+import Publications from '../components/Publications';
 
 function HomePage() { 
   return (
     <main>
       <Hero />
-      <About />
+      <section id="about">
+        <About />
+      </section>
       <Features />
-      <AiPlatformIntro />
-      <ServicesSection />
-      <DigitalModelIntro />
-      <Testimonials />
+      <section id="ai-platform">
+        <AiPlatformIntro />
+      </section>
+      <section id="services">
+        <ServicesSection />
+      </section>
+      <section id="digital-model">
+        <DigitalModelIntro />
+      </section>
+      <section id="publications">
+        <Publications />
+      </section>
+      <section id="testimonials">
+        <Testimonials />
+      </section>
       <PlatformCTA />
-      <Contact />
+      <section id="contact">
+        <Contact />
+      </section>
     </main>
   );
 }

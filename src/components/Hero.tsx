@@ -1,5 +1,4 @@
-import { User } from 'lucide-react';
-import Hero_Img from "../assets/Public_Speaking.jpg"
+import Hero_Img from "../assets/Public_Speaking.jpg";
 
 export default function Hero() {
   return (

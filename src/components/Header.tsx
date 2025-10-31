@@ -13,7 +13,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 mb-5">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
@@ -31,6 +31,30 @@ export default function Header() {
               className="text-charcoal hover:text-primary transition-colors font-medium"
             >
               AI Platform
+            </button>
+            <button
+              onClick={() => scrollToSection('digital-model')}
+              className="text-charcoal hover:text-primary transition-colors font-medium"
+            >
+              Digital Model
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              className="text-charcoal hover:text-primary transition-colors font-medium"
+            >
+              Services
+            </button>
+            <button
+              onClick={() => scrollToSection('publications')}
+              className="text-charcoal hover:text-primary transition-colors font-medium"
+            >
+              Publications
+            </button>
+            <button
+              onClick={() => scrollToSection('testimonials')}
+              className="text-charcoal hover:text-primary transition-colors font-medium"
+            >
+              Testimonials
             </button>
             <button
               onClick={() => scrollToSection('about')}
@@ -64,6 +88,30 @@ export default function Header() {
                 className="text-charcoal hover:text-primary transition-colors font-medium py-2 text-left"
               >
                 AI Platform
+              </button>
+              <button
+                onClick={() => scrollToSection('digital-model')}
+                className="text-charcoal hover:text-primary transition-colors font-medium py-2 text-left"
+              >
+                Digital Model
+              </button>
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-charcoal hover:text-primary transition-colors font-medium py-2 text-left"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection('publications')}
+                className="text-charcoal hover:text-primary transition-colors font-medium py-2 text-left"
+              >
+                Publications
+              </button>
+              <button
+                onClick={() => scrollToSection('testimonials')}
+                className="text-charcoal hover:text-primary transition-colors font-medium py-2 text-left"
+              >
+                Testimonials
               </button>
               <button
                 onClick={() => scrollToSection('about')}

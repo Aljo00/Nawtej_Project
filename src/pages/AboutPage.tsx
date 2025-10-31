@@ -19,7 +19,7 @@ const SupplementalServiceItem = ({ icon, text }) => (
 
 export default function AboutPage() {
   return (
-    <div className="bg-white text-charcoal">
+    <div className="bg-white text-charcoal mt-12">
       <header className="bg-gray-50 py-16 text-center">
         <h1 className="text-5xl font-bold text-primary">Nawtej Dosanjh Advisory</h1>
         <p className="text-xl text-gray-600 mt-4">Strategic Counsel for the Next Generation</p>
