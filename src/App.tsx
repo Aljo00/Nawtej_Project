@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import DigitalModelPage from './pages/DigitalModelPage';
+import AiPlatformPage from './pages/AiPlatformPage';
 import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange';
 
 function App() { 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/digital-model" element={<DigitalModelPage />} />
+        <Route path="/ai-platform" element={<AiPlatformPage />} />
       </Routes>
       <Footer />
       <ScrollToTop />

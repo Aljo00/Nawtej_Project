@@ -1,35 +1,37 @@
-export default function PlatformCTA() {
+const PlatformCTA = () => {
   const scrollToPricing = () => {
-    const element = document.getElementById('pricing');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const pricingSection = document.getElementById("pricing");
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="py-32 bg-gradient-to-r from-primary to-secondary flex items-center justify-center mt-9">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-          Ready to Lead with AI?
+    <div className="bg-gradient-to-r from-primary-600 to-secondary-600">
+      <div className="max-w-7xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          <span className="block">Ready to Lead with AI?</span>
         </h2>
-        <p className="text-xl sm:text-2xl text-white/90 mb-10">
+        <p className="mt-4 text-lg leading-6 text-primary-100">
           Transform Uncertainty into Competitive Advantage.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-8 flex justify-center space-x-4">
           <button
             onClick={scrollToPricing}
-            className="bg-white text-primary hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg transition-colors text-lg shadow-lg"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50"
           >
             Start Free
           </button>
           <button
             onClick={scrollToPricing}
-            className="bg-charcoal hover:bg-gray-800 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg shadow-lg"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-700 hover:bg-primary-800"
           >
             Upgrade to Pro
           </button>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default PlatformCTA;
