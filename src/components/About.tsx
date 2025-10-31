@@ -1,9 +1,9 @@
-import { User } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import About_Img from "../assets/About_Img.jpg"
 
 export default function About() {
   return (
-    <section id="about" className="min-h-screen bg-white flex items-center">
+    <section id="about" className="py-20 bg-white flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
@@ -13,23 +13,17 @@ export default function About() {
           </div>
 
           <div className="lg:w-1/2">
-            <p className="text-lg text-primary font-semibold mb-4">
-              YOUR LOCAL BUSINESS COACH / CONSULTANT
-            </p>
             <h2 className="text-4xl font-bold text-charcoal mb-6">
-              MEET NAWTEJ DOSANJH
+              Why Dr Nawtej Dosanjh
             </h2>
             <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
               <p>
-                Dr. Nawtej Dosanjh is a renowned business coach & consultant. He is associated with Middlesex University, London as a Professor for its Master Programs in Healthcare Business & Management and Business Excellence & Innovation.
-              </p>
-              <p>
-                He is passionate about helping businesses and has developed many frameworks for the NHS to help deliver great leaders & help companies to grow. His projects have delivered more than £1.5m in savings for NHS.
-              </p>
-              <p>
-                As a business coach & consultant, Nawtej has helped many companies to reach their goals. His clients include businesses from all sectors and sizes, from startups to large corporations.
+                Nawtej Dosanjh is a career academic and global strategist trusted by ultra-high-net-worth families to guide their children through some of the most critical developmental years. As the founder of Vedere University, he leads a global academic ecosystem and offers strategic mentorship and long-term educational planning.
               </p>
             </div>
+            <Link to="/about" className="mt-6 inline-block bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition duration-300">
+              Read More
+            </Link>
           </div>
         </div>
       </div>
