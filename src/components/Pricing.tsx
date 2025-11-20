@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Check } from "lucide-react";
+import EnquiryModal from "./EnquiryModal";
 
 const tiers = [
   {
@@ -53,12 +55,15 @@ const tiers = [
 ];
 
 const Pricing = () => {
-  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const [open, setOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const openForm = (plan: string) => {
+    setSelectedPlan(plan);
+    setOpen(true);
+  };
+
+  const closeForm = () => {
+    setOpen(false);
   };
 
   return (
@@ -76,9 +81,14 @@ const Pricing = () => {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative p-8 bg-white border rounded-2xl shadow-sm flex flex-col ${tier.highlighted ? "border-primary" : "border-gray-200"}`}>
+              className={`relative p-8 bg-white border rounded-2xl shadow-sm flex flex-col ${
+                tier.highlighted ? "border-primary" : "border-gray-200"
+              }`}
+            >
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-charcoal">{tier.name}</h3>
+                <h3 className="text-xl font-semibold text-charcoal">
+                  {tier.name}
+                </h3>
                 {tier.highlighted && (
                   <p className="absolute top-0 py-1.5 px-4 bg-primary rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
                     Most popular
@@ -108,18 +118,22 @@ const Pricing = () => {
                   ))}
                 </ul>
               </div>
-              <a
-                href={tier.href}
-                onClick={tier.name === 'Team' ? scrollToContact : undefined}
-                className={`mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium ${tier.highlighted
+              <button
+                onClick={() => openForm(tier.name)}
+                className={`mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium ${
+                  tier.highlighted
                     ? "bg-primary text-white hover:bg-primary-dark"
-                    : "bg-secondary text-white hover:bg-secondary-dark"}`}>
+                    : "bg-secondary text-white hover:bg-secondary-dark"
+                }`}
+              >
                 {tier.buttonText}
-              </a>
+              </button>
             </div>
           ))}
         </div>
       </div>
+
+      <EnquiryModal open={open} onClose={closeForm} plan={selectedPlan} />
     </div>
   );
 };

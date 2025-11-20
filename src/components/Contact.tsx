@@ -8,24 +8,45 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    // client-side validation
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^\S+@\S+\.\S+$/.test(formData.email))
+      newErrors.email = "Enter a valid email";
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    if (Object.keys(newErrors).length) {
+      setErrors(newErrors);
+      setStatus("error");
+      return;
+    }
+
+    setErrors({});
     setStatus("submitting");
     try {
-      // Send form data to a backend endpoint. Implement /api/contact server-side to persist or forward messages.
-      const res = await fetch("/api/contact", {
+      const FORMSPREE = "https://formspree.io/f/xovrybok";
+      const res = await fetch(FORMSPREE, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
       if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || "Failed to submit form");
+        const data = await res.json().catch(() => ({}));
+        const msg = data.error || data.message || "Failed to submit form";
+        throw new Error(msg);
       }
 
       setStatus("success");
@@ -39,7 +60,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-white flex items-center mt-12">
+    <section
+      id="contact"
+      className="min-h-screen bg-white flex items-center mt-12"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-charcoal mb-4">
@@ -99,6 +123,9 @@ export default function Contact() {
                 }
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
               />
+              {errors.name && (
+                <p className="mt-2 text-xs text-red-600">{errors.name}</p>
+              )}
             </div>
             <div>
               <label
@@ -117,6 +144,9 @@ export default function Contact() {
                 }
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
               />
+              {errors.email && (
+                <p className="mt-2 text-xs text-red-600">{errors.email}</p>
+              )}
             </div>
           </div>
 
@@ -137,6 +167,9 @@ export default function Contact() {
               }
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
             />
+            {errors.subject && (
+              <p className="mt-2 text-xs text-red-600">{errors.subject}</p>
+            )}
           </div>
 
           <div className="mb-6">
@@ -156,6 +189,9 @@ export default function Contact() {
               }
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
             />
+            {errors.message && (
+              <p className="mt-2 text-xs text-red-600">{errors.message}</p>
+            )}
           </div>
 
           <button

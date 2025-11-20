@@ -1,5 +1,6 @@
 import { Rocket, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import EnquiryModal from "./EnquiryModal";
 
 const PlatformIntro = () => {
   const scrollToPricing = () => {
@@ -8,6 +9,8 @@ const PlatformIntro = () => {
       pricingSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-light-gray">
@@ -26,13 +29,13 @@ const PlatformIntro = () => {
             hype—just results.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-            <Link
-              to="/ai-platform"
+            <button
+              onClick={() => setOpen(true)}
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark"
             >
               <Rocket className="-ml-1 mr-3 h-5 w-5" />
               Quick Start Wizard
-            </Link>
+            </button>
             <button
               onClick={scrollToPricing}
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-secondary hover:bg-secondary-dark"
@@ -69,6 +72,11 @@ const PlatformIntro = () => {
             </div>
           </div>
         </div>
+        <EnquiryModal
+          open={open}
+          onClose={() => setOpen(false)}
+          plan={"Quick Start Wizard"}
+        />
       </div>
     </div>
   );
